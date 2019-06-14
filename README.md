@@ -1,9 +1,9 @@
 # CANP ver 0.x.x
 
-Credits: | Copyright (c) Pete Logan, 2019 
-Licence: | MIT 
-Status: | beta 
-Tags: | paragliding, RAF 
+| Credits: | Copyright (c) Pete Logan, 2019 
+| Licence: | MIT 
+| Status: | beta 
+| Tags: | paragliding, RAF 
 
 Web App to submit Civil Aircraft Notification Procedure emails to the RAF. Intended for the UK free flight community to use.
 
