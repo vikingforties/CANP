@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!-- To Do
+Cookie prevents too many multiple sends. https://www.w3schools.com/php/php_cookies.asp
+Validation of sensible input in php. Belt and braces. Also stops MitM attack.
+Bot protection?
+Chris - Attitude article
+update to font awesome 5 - low priority
+
+
+js error handling - needed now with html restrictions on data entry?
+date not too far in the future and not in the past
+sensible mobile number
+sensible email address
+end after start time
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Weekday alerting form for free flying activity to military and civil pilots" />
+  <meta name="keywords" content="CANP,NOTAM,RAF,Paragliding,HangGliding" />
+  <meta name="author" content="Peter Logan" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>CANP for free fliers</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body onload="SetDate();">
+  <script>
+  function populate(s1,s2){
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	s2.innerHTML = "";
+	if(s1.value == "Avon"){
+		var optionArray = ["|","Cam Long Down ST773995|Cam Long Down","Frocester SO794012 2.079|Frocester","Long Knoll ST796377 2.060|Long Knoll","Mere Coward's Bowl ST806345 2.037|Mere Coward's Bowl","Mere Morgan's Ridge ST803354|Mere Morgan's Ridge","Mere Rifle Range ST811344 2.037|Mere Rifle Range","Mere Spencer's Bowl ST802350|Mere Spencer's Bowl","Selsley Common SO827032 2.080|Selsley Common","Westbury/Bratton Camp ST899516 1.004|Westbury/Bratton Camp"];
+	} else if(s1.value == "Cumbria"){
+		var optionArray = ["Barkin Fell SD675870 17.053|Barkin Fell"];
+	} else if(s1.value == "Dales"){
+		var optionArray = ["|","Addingham Moorside SE078471 17.05|Addingham Moorside","Addlebrough SD948880|Addlebrough","Baildon SE145404|Baildon","Bishopdale SD950803 17.054|Bishopdale","Brant Side SD778866 17.057|Brant Side","Cow Close Fell SD890732 17.003|Cow Close Fell","Cowling & Sutton Pinnacles SD988430 17.061|Cowling & Sutton Pinnacles","Dodd Fell & Grove Head SD829838 17.102|Dodd Fell & Grove Head","Fremington Edge NZ046003|Fremington Edge","Great Whernside SD998751|Great Whernside","Ilkley Moor SE135464|Ilkley Moor","Kettlewell SD967711|Kettlewell","Kilnsey SD971679|Kilnsey","Nappa Scar SD96092517.069|Nappa Scar","Semer Water SD909880 17.008|Semer Water","Stags Fell SD870927 17.009|Stags Fell","Tailbridge NY804050 17.075|Tailbridge","Wether Fell SD868867 17.017|Wether Fell","Whernside SD725788 17.01|Whernside","Windbank/Hawkswick SD966704 17.011|Windbank/Hawkswick"];
+	} else if(s1.value == "Long Mynd SC"){
+		var optionArray = ["|","Black Knoll SO393887 9.052|Black Knoll","Camlo SO028705 7.062|Camlo","Clatter SO004964 7.017|Clatter","Clunbury SO375801 4.050|Clunbury","Corndon SO310967 9.005|Corndon","Lanfawr SO295967 9.054|Lanfawr","Lawley SO493974 9.050|Lawley","Llandinam SO045884 7.085|Llandinam","Long Mynd SO404919 9.051|Long Mynd","Sarn SO227901 7.112|Sarn","Shepherds Tump SO154653 7.113|Shepherds Tump","Wrekin SJ631085 4.056|Wrekin"];
+	} else if(s1.value == "Malvern"){
+		var optionArray = ["|","Black Hill SO767407 4.002|Black Hill","Builth Wells SO081523|Builth Wells","Castlemorton SO762386|Castlemorton","Croft Farm SO908430|Croft Farm","Leckhampton SO955185 4.054|Leckhampton","Much Marcle SO630329|Much Marcle","Perseverance Hill SO769435|Perseverance Hill","Pinnacle Hill (Kettle Sings) SO768421 4.002|Pinnacle Hill (Kettle Sings)","Worcestershire Beacon SO769451|Worcestershire Beacon"];
+	} else if(s1.value == "North Yorks"){
+		var optionArray = ["|","Busby Moor (Model Ridge) NZ525033 11.018|Busby Moor (Model Ridge)","Captain Cook's Monument NZ598101 11.053|Captain Cook's Monument","Carlton Bank NZ519025 11.018|Carlton Bank","Cringle Moor NZ535034 11.018|Cringle Moor","Huntcliffe (Saltburn) NZ671215 12.061|Huntcliffe","Marske Sand Dunes NZ640228 11.065|Marske Sand Dunes","Summer Hill NZ593114 11.064|Summer Hill","Sutton Bank SE514830 11.065|Sutton Bank"];
+	} else if(s1.value == "Pennine"){
+		var optionArray = ["|","Nont Sarahs SE018137 8.012|Nont Sarahs","Pule SE033104 8.062|Pule"];
+	} else if(s1.value == "SE Wales"){
+		var optionArray = ["|","Abertysswg SO141059 7.053|Abertysswg","Bedlinog SO100035 7.119|Bedlinog","Bleanavon SO218098 7.055|Bleanavon","Blorenge SO280129 7.002|Blorenge","Cwmbran Mountain Air ST268978 7.166|Cwmbran Mountain Air","Cwmbran Ty-canol ST262955 7.165|Cwmbran Ty-canol","Cwmparc SS932951 7.074|Cwmparc","Ebbw Vale SO168065 7.163|Ebbw Vale","Fochriw SO098048 7.164|Fochriw","Garth Hill ST113837 7.079|Garth Hill","Garway SO436250|Garway","Gelligaer SO116015|Gelligaer","Hay Bluff SO245365 7.005|Hay Bluff","Machen ST225900 7.086|Machen","Merthyr SO078036 7.094|Merthyr","Mynydd Meio ST114883 7.100|Mynydd Meio","Nant-y-Moel SS944938 7.104|Nant-y-Moel","Pandy SO319243 7.003|Pandy","Pontlottyn SO116051|Pontlottyn","Pen Cerrig Calch SO220216|Pen Cerrig Calch","Rhigos SN926031 7.110|Rhigos","Skirrid Fawr SO330180|Skirrid Fawr","Sugar Loaf SO271166 7.039|Sugar Loaf","Talybont SO058191|Talybont"];
+	} else if(s1.value == "Sky Surfing"){
+		var optionArray = ["|","Butser West SU712203|Butser West","Harting SU805184|Harting","Mercury SU675197|Mercury","Whitewool SU650204|Whitewool"];
+	} else if(s1.value == "Thames Valley"){
+		var optionArray = ["|","Combe Gibbet SU362623 1.002|Combe Gibbet","Golden Ball SU127638|Golden Ball","Liddington SU208798|Liddington","Milk Hill SU101644|Milk Hill","Milk Hill White Horse SU100637|Milk Hill White Horse","Rybury SU084637|Rybury","Sugar SU238786|Sugar","Tan SU085646|Tan","Uffington White Horse SU302868|Uffington White Horse","White Hill SU518566|White Hill"];
+	} else if(s1.value == "Welsh Borders"){
+		var optionArray = ["Hundred House SO085527|Hundred House",];
+	} else if(s1.value == "XClent"){
+		var optionArray = ["Cravens Gorse SP052240 4.000|Cravens Gorse",];
+	} else if(s1.value == "Somewhere Else"){
+		var optionArray = ["Free Entry Page?|Free Entry Page?"];
+	}
+	for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		s2.options.add(newOption);
+	}
+}
+  </script>
+  <div class="container">
+    <h1 class="brand"><span>CANP</span> for free fliers</h1>
+    <div class="wrapper animated bounceInLeft">
+      <div class="company-info">
+	    <h3>Civil Aircraft Notification Procedure</h3>
+		<h5>Weekday alert of activity to military & civil pilots (or to other airspace users)</h5>
+        <ul>
+		  <div class="coinfo-links">
+            <li><i class="fa fa-info-circle"></i><a href="instructions.html">&nbsp;Instructions</a></li>
+            <li><i class="fa fa-fighter-jet"></i><a href="https://notaminfo.com/ukmap/" target="_blank"> NOTAMs</a></li>
+            <li><i class="fa fa-edit"></i><a href="http://www.bhpa.co.uk/documents/safety/canp/" target="_blank"> BHPA Policy</a></li>
+		    <li><i class="fa fa-question-circle-o"></i><a href="about.html"> About & Help</a></li>
+			<li><i class="fa fa-phone"></i> 0800 515544 Call it in</li>
+		  </div>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>Send preferably earlier than 8pm the evening before flying</h3>
+        <form name="canpsubmission" method="post" action="send_canp_email.php">
+          <p>
+            <label>Club</label>
+            <select name="club" id="slct1" onchange="populate(this.id,'slct2')" autofocus required>
+			  <option value=""></option>
+			  <option value="Avon">Avon</option>
+			  <option value="Cumbria">Cumbria</option>
+			  <option value="Dales">Dales</option>
+			  <option value="Long Mynd SC">Long Mynd SC</option>
+			  <option value="Malvern">Malvern</option>
+			  <option value="North Yorks">North Yorks</option>
+			  <option value="Pennine">Pennine</option>
+			  <option value="SE Wales">SE Wales</option>
+			  <option value="Sky Surfing">Sky Surfing</option>
+			  <option value="Thames Valley">Thames Valley</option>
+			  <option value="Welsh Borders">Welsh Borders</option>
+			  <option value="XClent">XClent</option>
+			</select>
+          </p>
+          <p>
+		    <label>Location</label>
+            <select name="location" id="slct2" required></select>
+          </p>
+<!--          <p>
+            <label>Area of operation</label>
+            <select name="area" value="1nm diameter, up to 1000ft">
+			  <option value="1nm diameter & <=1000ft temporary avoidance zone">1nm diameter, up to 1000ft</option>
+              <option value="2nm radius Civil Aircraft Notification Procedure">2nm radius notification</option>
+			</select>
+          </p>   -->
+          <p>
+            <label>Date of activity</label>
+            <input type="date" name="date" id="notifDate" />
+<script type="text/javascript">
+function SetDate() {
+  var nextdate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  var nextday = nextdate.getDate();
+  var month = nextdate.getMonth() + 1;
+  var year = nextdate.getFullYear();
+  if (month < 10) month = "0" + month;
+  if (nextday < 10) day = "0" + day;
+  var tomorrow = year + "-" + month + "-" + nextday;
+  document.getElementById('notifDate').value = tomorrow;
+  
+  var thisdate = new Date(new Date().getTime());
+  var thisday = thisdate.getDate();
+  var thismonth = thisdate.getMonth() + 1;
+  var thisyear = thisdate.getFullYear();
+  if (thismonth < 10) thismonth = "0" + thismonth;
+  if (thisday < 10) thisday = "0" + thisday;
+  var today = thisyear + "-" + thismonth + "-" + thisday;
+  document.getElementById('notifDate').min = today;
+  
+  var lmtdate = new Date(new Date().getTime() + 8 * 24 * 60 * 60 * 1000);
+  var lmtday = lmtdate.getDate();
+  var lmtmonth = lmtdate.getMonth() + 1;
+  var lmtyear = lmtdate.getFullYear();
+  if (lmtmonth < 10) lmtmonth = "0" + lmtmonth;
+  if (lmtday < 10) lmtday = "0" + lmtday;
+  var lmtday = lmtyear + "-" + lmtmonth + "-" + lmtday;
+  document.getElementById('notifDate').max = lmtday;
+}
+</script>
+          </p>
+          <p>
+            <label>Expected gliders</label>
+            <select name="gliders" value="5+">
+              <option value="5+">5+</option>
+              <option value="10+">10+</option>
+              <option value="15+">15+</option>
+              <option value="20+">20+</option>
+              <option value="40+">40+</option>
+              <option value="60+">60+</option>
+            </select>
+          </p>
+          <p>
+            <label>Flying start time</label>
+            <input type="time" name="starttime" value="10:00" />
+          </p>
+          <p>
+            <label>Flying end time</label>
+            <input type="time" name="endtime" value="18:00" />
+          </p>
+          <p>
+            <label>Contact telephone</label>
+            <input type="tel"  name="phone" maxlength="80" placeholder="+447123456789 mobile#" pattern="^\+?(44)?(0|7)\d{9,13}$" required />
+          </p>
+          <p>
+            <label>Optional confirmation email</label>
+            <input type="email"  name="email" pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$" placeholder="someone@somewhere.com" maxlength="80" />
+          </p>
+          <p>
+		    <label>&nbsp;</label>
+            <button>Submit</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
