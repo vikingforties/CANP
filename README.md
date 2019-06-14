@@ -1,6 +1,7 @@
 # CANP ver 0.x.x
 
 | Credits: | Copyright (c) Pete Logan, 2019 
+| --- | --- 
 | Licence: | MIT 
 | Status: | beta 
 | Tags: | paragliding, RAF 
