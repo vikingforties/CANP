@@ -1,4 +1,12 @@
-# CANP
++++++++++++++++++
+CANP ver 0.x.x
++++++++++++++++++
+
+:Credits: Copyright (c) Pete Logan, 2019
+:Licence: MIT
+:Status: beta
+:Tags: paragliding, RAF
+
 Web App to submit Civil Aircraft Notification Procedure emails to the RAF. Intended for the UK free flight community to use.
 
 Flying mid week in the UK should involve warning the RAF about intended active free flying sites. 
@@ -11,3 +19,41 @@ should be dropped into a /styles directory.
 I used a bunch of nice formatting tools like bootstrap.css, awesome fonts and HTML5 to make this a simple and good looking user experience.
 
 It can be viewed in action here: http://canp.logans.me.uk
+
+
+Disclaimer
+==========
+
+This is software supplied as is. THERE IS NO WARRANTY FOR THIS PROGRAM.
+
+Author shall not be responsible for loss of data under any circumstance.
+
+Please make regular backups of data.
+
+
+Installation
+============
+
+This application don't require special steps to install.
+Just unpack and run via wxgtd.pyw.
+
+Runtime Requirements
+--------------------
+* ISP preferrably with CPanel
+* PHP 2.6+
+* wxWidgets 2.8+
+* python-dateutil http://labix.org/python-dateutil
+* MySQL or MariaDB
+
+
+Licence
+=======
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the MIT License.
+
+Credits
+=======
+* Mail library from PEAR - https://pear.php.net/package/Mail/
+* Bootstrap - https://getbootstrap.com/
+* Font Awesome - https://fontawesome.com/
