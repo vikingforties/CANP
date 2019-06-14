@@ -1,11 +1,9 @@
-+++++++++++++++++
-CANP ver 0.x.x
-+++++++++++++++++
+# CANP ver 0.x.x
 
-:Credits: Copyright (c) Pete Logan, 2019
-:Licence: MIT
-:Status: beta
-:Tags: paragliding, RAF
+Credits: | Copyright (c) Pete Logan, 2019 
+Licence: | MIT 
+Status: | beta 
+Tags: | paragliding, RAF 
 
 Web App to submit Civil Aircraft Notification Procedure emails to the RAF. Intended for the UK free flight community to use.
 
@@ -40,9 +38,7 @@ Just unpack and run via wxgtd.pyw.
 Runtime Requirements
 --------------------
 * ISP preferrably with CPanel
-* PHP 2.6+
-* wxWidgets 2.8+
-* python-dateutil http://labix.org/python-dateutil
+* PHP 
 * MySQL or MariaDB
 
 
@@ -50,7 +46,10 @@ Licence
 =======
 
 This program is free software: you can redistribute it and/or modify
-it under the terms of the MIT License.
+it under the terms of the MIT License. 
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+
+- **[MIT license](http://opensource.org/licenses/mit-license.php)**
 
 Credits
 =======
