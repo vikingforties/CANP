@@ -1,6 +1,8 @@
 # CANP ver 0.x.x
 
-| Credits: | Copyright (c) Pete Logan, 2019 
+![CANP banner](https://raw.githubusercontent.com/vikingforties/CANP/master/CANPbanner.PNG)
+
+| Credits: | Copyright (c) Pete Logan, 2020 
 | --- | --- 
 | Licence: | MIT 
 | Status: | beta 
