@@ -1,4 +1,4 @@
-# CANP ver 0.x.x
+# CANP ver 2.0
 
 ![CANP banner](https://raw.githubusercontent.com/vikingforties/CANP/master/CANPbanner.PNG)
 
@@ -31,12 +31,6 @@ Author shall not be responsible for loss of data under any circumstance.
 
 Please make regular backups of data.
 
-
-Installation
-============
-
-This application don't require special steps to install.
-Just unpack and run via wxgtd.pyw.
 
 Runtime Requirements
 --------------------
