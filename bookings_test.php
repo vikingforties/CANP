@@ -1,7 +1,7 @@
 <?php
-/*
-List:
-Bar graph of frequency through over time (days). jpgraph.net?
+// Details: https://github.com/vikingforties/CANP
+/* To Dos
+
 */
 include("config.php");
 
@@ -36,7 +36,7 @@ echo(' <!DOCTYPE html>
   <meta name="author" content="Peter Logan" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CANP for free fliers</title>
+  <title>test CANP for free fliers</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
   <link rel="stylesheet" href="styles/style.css">
@@ -44,16 +44,16 @@ echo(' <!DOCTYPE html>
 </head>
 <body>
   <div class="container">
-    <h1 class="brand"><span>CANP</span> for free fliers</h1>
+    <h1 class="brand"><span>test CANP</span> for free fliers</h1>
     <div class="wrapper animated fadeInLeft">
       <div class="company-info">
 	    <h3>Civil Aircraft Notification Procedure</h3>
-		<h5>Stats from the live database.</h5>
+		<h5>Always worth checking this page just to make sure you&#39;re not sending a duplicate booking in.</h5>
         <ul>
 		  <div class="coinfo-links">
-            <li><i class="fa fa-envelope"></i><a href="index.html">&nbsp;Send in CANP</a></li>
+            <li><i class="fa fa-envelope"></i><a href="index.html">&nbsp;Send in real CANP</a></li>
             <li><i class="fas fa-vial"></i><a href="index_test.html">&nbsp;Try sending a test</a></li>
-            <li><i class="fa fa-question-circle " ></i><a href="about.html">&nbsp;About & Help</a></li>
+            <li><i class="fa fa-question-circle " ></i><a href="about.html"> About & Help</a></li>
             <li><i class="fa fa-info-circle"></i><a href="instructions.html">&nbsp;Instructions</a></li>
             <li><i class="fa fa-fighter-jet"></i><a href="https://notaminfo.com/ukmap/" target="_blank">&nbsp;NOTAMs</a></li>
             <li><i class="fa fa-edit"></i><a href="http://www.bhpa.co.uk/documents/safety/canp/" target="_blank">&nbsp;BHPA Policy</a></li>
@@ -62,87 +62,40 @@ echo(' <!DOCTYPE html>
 			<li><i class="fa fa-file " ></i> <a href="privacy.html">&nbsp;Privacy Policy</a></li>
 			<li><i class="fas fa-chart-bar"></i> <a href="stats.php">&nbsp;Usage Statistics</a></li>
 			<li><i class="fas fa-map-signs"></i> <a href="coverage.html">&nbsp;Map with site guides</a></li>
-			<li><i class="fa fa-list"></i><a href="bookings.php">&nbsp;Current/Future CANPs</a></li>
+			<li><i class="fa fa-list"></i><a href="bookings_test.php"> Current/Future CANPs</a></li>
 		  </div>
         </ul>
       </div>
       <div class="contact">
-        <h3>Some Useful Statistics:</h3>
+        <h3>All Upcoming CANP bookings</h3>
 ');
 
-// Count the entries
-$sql = sprintf('SELECT COUNT(*) AS Count FROM CANP');
-$result = $conn->query($sql);
-echo('Total number of CANPs is ');
-$row = mysqli_fetch_assoc($result);
-printf ("%s", $row["Count"]);
-echo('<br>');
+$sql = sprintf('SELECT Site, Scheduled, FromTime, ToTime FROM testCANP WHERE Scheduled >= DATE_ADD(CURDATE(), INTERVAL 0 DAY) ORDER BY Scheduled, Site');
 
-// Count the sites
-$sql = sprintf('SELECT COUNT(*) AS Count FROM CANPsites');
 $result = $conn->query($sql);
-echo('Total number of sites is ');
-$row = mysqli_fetch_assoc($result);
-printf ("%s", $row["Count"]);
-echo('<br>');
-
-$sql = sprintf('SELECT DISTINCT Scheduled, COUNT( Scheduled ) AS Count FROM CANP GROUP BY Scheduled ORDER BY Count DESC LIMIT 1');
-$result = $conn->query($sql);
-echo('Most CANPs for one day is ');
-$row = mysqli_fetch_assoc($result);
-printf ("%s", $row["Count"]);
-echo('<br>');
-
-$sql = sprintf('SELECT round(avg(count), 1) FROM ( SELECT DISTINCT Scheduled, COUNT( Scheduled ) AS Count FROM CANP GROUP BY Scheduled ) as counts');
-$result = $conn->query($sql);
-echo('Mean CANPs per day is ');
-$row = mysqli_fetch_assoc($result);
-printf ("%s", $row['round(avg(count), 1)']);
-echo('<br><br>');
-
-// Let's get a list of unique clubs
-$sql = sprintf('SELECT DISTINCT Club, COUNT( Club ) AS Count FROM CANP GROUP BY Club ORDER BY Count DESC');
-$result = $conn->query($sql);
-// Then output
 if ($result->num_rows > 0) {
-    echo('<table><caption><b>CANPs per Club or School</b></caption>');
-    while($row = $result->fetch_assoc()){
-        echo('<tr><td>' . $row["Club"] . '</td><td>' . "&nbsp;&nbsp;&nbsp;" . $row["Count"] . '</td></tr>');
-    }
-    echo('</table>');
-} else {
-    echo "No clubs to show.";
-}
-echo('<br><br>');
-
-// Let's get a list of unique sites
-$sql = sprintf('SELECT DISTINCT Site, COUNT( Site ) AS Count FROM CANP GROUP BY Site ORDER BY Count DESC LIMIT 10');
-$result = $conn->query($sql);
-// Then output
-if ($result->num_rows > 0) {
-    //$counter = 0;
-    echo('<table><caption><b>Top ten CANPs per Site</b></caption>');
-    while($row = $result->fetch_assoc()){
+    // output data of each row
+    echo('<table><caption><b>From today onward:</b></caption>');
+    while($row = $result->fetch_assoc()) {
         $sitebits = preg_split('/[A-Z]{2}/', $row["Site"]);
-        echo('<tr><td>' . $sitebits[0] . '</td><td>' . "&nbsp;&nbsp;&nbsp;" . $row["Count"] . '</td></tr>');
-        //$counter ++;
+        $datebits = explode("-", $row["Scheduled"]);
+        $frombits = $row["FromTime"];
+        $tobits = $row["ToTime"];
+        $orddate = date('D jS', mktime(0, 0, 0, $datebits[1], $datebits[2], $datebits[0]));
+        echo('<tr><td>' . $sitebits[0] . '</td><td>' . "  - " . $orddate . '</td><td>' . '  &nbsp;&nbsp;<i class="far fa-clock"></i> ' . $frombits . "  - " . $tobits . '</td></tr>');
     }
     echo('</table>');
 } else {
-    echo "No sites to show.";
+    echo "No upcoming CANPs";
 }
 
-echo('
-        <p><br><b>Monthly usage graph</b>
-        <p><img src=statgraph.php alt="Monthly usage graph">
-        <br><small></small>
+echo('	<br><br><small>This is a list of what has been sent through this utility/website. It does not include what may have been phoned through to the Low Flying Booking Cell. You&#39;d need to check <a href="https://notaminfo.com/ukmap/" target="_blank"> NOTAM Info</a> for that.</small>
       </div>
     </div>
   </div>
 </body>
 </html>
 ');
-
 
 $conn->close();
 ?>

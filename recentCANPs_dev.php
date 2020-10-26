@@ -1,6 +1,8 @@
 <?php
 // Details: https://github.com/vikingforties/CANP
 /* To Dos
+Items to check on change to Live:
+SQl statement DB name
 
 */
 include("config.php");
@@ -27,7 +29,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = sprintf('SELECT Site, Scheduled FROM CANP WHERE Scheduled >= DATE_ADD(CURDATE(), INTERVAL 0 DAY) ORDER BY Scheduled, Site LIMIT 6');
+$sql = sprintf('SELECT Site, Scheduled FROM devCANP WHERE Scheduled >= DATE_ADD(CURDATE(), INTERVAL 0 DAY) ORDER BY Scheduled, Site LIMIT 6');
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {

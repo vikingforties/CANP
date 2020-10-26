@@ -1,6 +1,6 @@
 <?php
 // Details: https://github.com/vikingforties/CANP
-// Dedicated live version - emails go to LFBC
+// Dedicated test version - emails go to self account
 //
 /* To Dos
 Items to check on change to Live:
@@ -12,11 +12,12 @@ SQl statement DB name
 <li> menu Bookings destination
 emails destinations for test and live
 */
-//Set environment
+
+// Set environment
 include("validation.php");
 include("config.php");
-$test = false;
-$live = true;
+$test = true;
+$live = false;
 $dev = false;
 
 error_reporting(E_ALL);
@@ -38,7 +39,7 @@ if (sizeof($_POST, 1) != 7) {
     exit("Exit without return. $methodwas , $sizewas");
 }
 
-// Check whether we have a spoofed POST or bad data sent.array_push($validdates, $newday);
+// Check whether we have a spoofed POST or bad data sent.
 $errorFlag = "";
 $inenv = test_input($_POST["environment"]); // Check the right environment was sent.
 $validenv = array("Hill","Power","Aerotow","Tow/Winch");
@@ -121,7 +122,7 @@ $notifications = array();
 if ($flag['Status'] == 1) {
     $errorFlag = "Too many posts. Service halted to prevent attack.";
 } else {
-    $sql = sprintf("SELECT * FROM CANP WHERE Scheduled >= DATE_ADD(CURDATE(), INTERVAL 0 DAY) LIMIT 25");
+    $sql = sprintf("SELECT * FROM testCANP WHERE Scheduled >= DATE_ADD(CURDATE(), INTERVAL 0 DAY) LIMIT 25");
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // output data of each row
@@ -162,7 +163,7 @@ echo(' <!DOCTYPE html>
   <meta name="author" content="Peter Logan" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>CANP for free fliers</title>
+  <title>test CANP for free fliers</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
   <link rel="stylesheet" href="styles/style.css">
@@ -179,7 +180,7 @@ echo(' <!DOCTYPE html>
 </head>
 <body>
   <div class="container">
-    <h1 class="brand"><span>CANP</span> for free fliers</h1>
+    <h1 class="brand"><span>test CANP</span> for free fliers</h1>
     <div class="wrapper animated fadeInLeft">
       <div class="company-info">
 	    <h3>Civil Aircraft Notification Procedure</h3>
@@ -197,7 +198,7 @@ echo(' <!DOCTYPE html>
             <li><i class="fas fa-user-secret"></i> <a href="privacy.html">&nbsp;Privacy Policy</a></li>
             <li><i class="fas fa-chart-bar"></i> <a href="stats.php">&nbsp;Usage Statistics</a></li>
             <li><i class="fas fa-map-signs"></i> <a href="coverage.html">&nbsp;Map with site guides</a></li>
-            <li><i class="fas fa-list"></i><a href="bookings.php">&nbsp;Current/Future CANPs</a></li>
+            <li><i class="fas fa-list"></i><a href="bookings_test.php">&nbsp;Current/Future CANPs</a></li>
 		  </div>
         </ul>
       </div>
@@ -234,6 +235,7 @@ if ($result->num_rows > 0) {
 $op_area = "2nm radius up to 2000ft agl";
 $dateparts = explode("-", $_POST['date']);
 $flipdate = $dateparts[2] . "-" . $dateparts[1] . "-" . $dateparts[0];
+$testtext = "= TEST SUBMISSION =";
 $timing = "Dawn to dusk";
 $gliders = "5+";
 $winchtext = "Winch-launched hang/paragliding will take place";
@@ -246,11 +248,8 @@ $hilltext = "Hill-launched hang/paragliding will take place";
 $from = "logansm@viking.eukhosting.net";
 /* Do specify the sender/from Email Address in above <**> field */
 //$to = "peter.logan@intel.com";
-//$to = $_POST['email'];
-$to = "swk-lfoflfbc@mod.gov.uk";
-if ($live && $_POST['email'] == 'pete@logans.me.uk' && $_POST['location'] == 'Baildon SE145404') {
-    $to = "pete@logans.me.uk";
-}
+$to = $_POST['email'];
+//$to = "swk-lfoflfbc@mod.gov.uk";
 /* Do specify the Recipient's Email Address in above <**> field */
 $subject = "CANP booking";
 $body = "New CANP notification for:\n";
@@ -271,6 +270,7 @@ $body .= "Schedule:             ".$timing."\n";
 $body .= "Expected gliders:     ".$gliders."\n";
 $body .= "Contact telephone:    ".$_POST['phone']."\n";
 $body .= "Confirmation email:     ".$_POST['email']."\n";
+$body .= $testtext."\n";
 $body .= "To the LFBC operator, please confirm this via email reply. Approval has been given by OC LFOF for notifications to come through in this format for hang/paragliders, not the Excel sheet.";
 
 // Extract a grid ref
@@ -295,6 +295,7 @@ $bodyhtm .= "<tr><td><b>Expected gliders:  </b></td><td>".$gliders."</td></tr>";
 $bodyhtm .= "<tr><td><b>Contact telephone: </b></td><td>".$_POST['phone']."</td></tr>";
 //$bodyhtm .= "<tr><td><b>reCAPTCHA score:   </b></td><td>".$Returntext."</td></tr>";
 $bodyhtm .= "<tr><td><b>Confirmation email:</b></td><td>".$_POST['email']."</td></tr>";
+$bodyhtm .= "<tr><td><b>".$testtext."</b></td><td>"."</td></tr>";
 $bodyhtm .= "</table>";
 $bodyhtm .= "<p>Check your submitted grid ref location here: ".'<i class="fas fa-map-marker"></i><a href=https://gridreferencefinder.com?gr=' . $gridref[0] . ' target="_blank">  map link</a></p>';
 
@@ -364,17 +365,12 @@ $bodydb .= "Flying date:       ".$_POST['date']."\n";
 $bodydb .= "Schedule:          ".$timing."\n";
 $bodydb .= "Expected gliders:  ".$gliders."\n";
 
-$sql = sprintf("INSERT INTO CANP (Club, Site, Scheduled, MobileHash, EmailHash, FullCANPtext, FromTime, ToTime) VALUES (\"$club\", \"$site\", \"$scheduled\", \"$mobhash\", \"$emailhash\", \"$bodydb\", \"$fromtime\", \"$totime\");");
+$sql = sprintf("INSERT INTO testCANP (Club, Site, Scheduled, MobileHash, EmailHash, FullCANPtext, FromTime, ToTime) VALUES (\"$club\", \"$site\", \"$scheduled\", \"$mobhash\", \"$emailhash\", \"$bodydb\", \"$fromtime\", \"$totime\");");
 
-// Don't store to DB if it's the tester.
-if ($live && $_POST['email'] == 'pete@logans.me.uk' && $_POST['location'] == 'Baildon SE145404') {
-    // do nothing
+if ($conn->query($sql) === TRUE) {
+    echo ""; // Don't add msg to screen on success.
 } else {
-    if ($conn->query($sql) === TRUE) {
-        echo ""; // Don't add msg to screen on success.
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
 
