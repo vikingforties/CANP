@@ -1,0 +1,21 @@
+DELETE FROM `devCANP` WHERE `EntryTime` > (NOW() - INTERVAL 30 MINUTE);
+
+
+Remove Bradwell & Eyam Edge from test script.
+
+Peaks Edge Top & High Edge out of alphabetical order in menu.
+
+Fat Paramotor HQ was set for both club and site - now Fat Paramotor is club name and HQ refers to the actual site.
+Fat Paramotor HQ TF055746 - bizarre bug where their full address being selected is tied to it being tomorrow's date... maybe.
+
+
+
+
+
+
+
+
+
+
+
+

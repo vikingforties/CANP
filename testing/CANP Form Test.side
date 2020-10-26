@@ -1,0 +1,356 @@
+{
+  "id": "15a09f00-292b-4873-ba2f-d7980281517d",
+  "version": "2.0",
+  "name": "CANP Form Test",
+  "url": "http://localhost/canp/index_dev.html",
+  "tests": [{
+    "id": "9fd6ea98-aed5-47fe-9319-3c8f1b74fd97",
+    "name": "Bratton Camp",
+    "commands": [{
+      "id": "2e062bca-fea7-4511-b265-9a5c75b15dfe",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/canp/index_dev.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1350064c-22ff-47dd-a5f7-d197b75547d8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "624x693",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d6a191dd-f528-4386-ac6d-d1c2bbc33251",
+      "comment": "",
+      "command": "click",
+      "target": "id=slct0",
+      "targets": [
+        ["id=slct0", "id"],
+        ["name=environment", "name"],
+        ["css=#slct0", "css:finder"],
+        ["xpath=//select[@id='slct0']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "133f16ff-9885-4d72-add8-4f81a6701561",
+      "comment": "",
+      "command": "select",
+      "target": "id=slct0",
+      "targets": [],
+      "value": "label=Hill"
+    }, {
+      "id": "4013b6dc-ba9c-42ed-9e72-aba5daf9b89a",
+      "comment": "",
+      "command": "click",
+      "target": "css=#slct0 > option:nth-child(2)",
+      "targets": [
+        ["css=#slct0 > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Hill']", "xpath:attributes"],
+        ["xpath=//select[@id='slct0']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Hill')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac978d5d-5eb8-47cd-857b-032ba7e367bc",
+      "comment": "",
+      "command": "click",
+      "target": "id=slct1",
+      "targets": [
+        ["id=slct1", "id"],
+        ["name=club", "name"],
+        ["css=#slct1", "css:finder"],
+        ["xpath=//select[@id='slct1']", "xpath:attributes"],
+        ["xpath=//p[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "42068b33-713a-47eb-b27f-924147349f93",
+      "comment": "",
+      "command": "select",
+      "target": "id=slct1",
+      "targets": [],
+      "value": "label=Avon"
+    }, {
+      "id": "57d6c1a9-cc9e-407d-851a-a75fd7b4a20c",
+      "comment": "",
+      "command": "click",
+      "target": "css=#slct1 > option:nth-child(2)",
+      "targets": [
+        ["css=#slct1 > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Avon']", "xpath:attributes"],
+        ["xpath=//select[@id='slct1']/option[2]", "xpath:idRelative"],
+        ["xpath=//p[2]/select/option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Avon')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "793236db-5a80-4c0b-b74f-6cad47f33aeb",
+      "comment": "",
+      "command": "click",
+      "target": "id=slct2",
+      "targets": [
+        ["id=slct2", "id"],
+        ["name=location", "name"],
+        ["css=#slct2", "css:finder"],
+        ["xpath=//select[@id='slct2']", "xpath:attributes"],
+        ["xpath=//p[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48b34908-c19a-48af-91bf-df227cf769f4",
+      "comment": "",
+      "command": "select",
+      "target": "id=slct2",
+      "targets": [],
+      "value": "label=Bratton Camp"
+    }, {
+      "id": "2bdfbf44-cc12-4813-8893-5b57d625fa63",
+      "comment": "",
+      "command": "click",
+      "target": "css=#slct2 > option:nth-child(2)",
+      "targets": [
+        ["css=#slct2 > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Bratton Camp ST900516']", "xpath:attributes"],
+        ["xpath=//select[@id='slct2']/option[2]", "xpath:idRelative"],
+        ["xpath=//p[3]/select/option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Bratton Camp')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "132ab3cf-bd19-4220-a8a6-b9d902b3ba3b",
+      "comment": "",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=p:nth-child(5) > input", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//p[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6648fa61-1757-4fe8-9c9e-cad340793db1",
+      "comment": "",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=p:nth-child(5) > input", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//p[5]/input", "xpath:position"]
+      ],
+      "value": "+447795426748"
+    }, {
+      "id": "d7943546-c346-4268-9364-42e20dd8ca58",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=p:nth-child(6) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//p[6]/input", "xpath:position"]
+      ],
+      "value": "pete@logans.me.uk"
+    }, {
+      "id": "e584707f-28ef-4741-a96f-362132ac0355",
+      "comment": "",
+      "command": "click",
+      "target": "id=submitbutton",
+      "targets": [
+        ["id=submitbutton", "id"],
+        ["css=#submitbutton", "css:finder"],
+        ["xpath=//button[@id='submitbutton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb331166-e2ad-42db-b5fb-020c1c59dbae",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(6) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(6) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[6]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Dawn to dusk')]", "xpath:innerText"]
+      ],
+      "value": "Dawn to dusk"
+    }]
+  }, {
+    "id": "b2450059-5cac-4da7-a175-4ca2ff7f9b02",
+    "name": "Cam Long Down",
+    "commands": [{
+      "id": "4ab813b4-8ea5-4018-afff-479e57fbc5fd",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/canp/index_dev.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5404007b-f9db-4b7e-8ce0-1b97853865cb",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "650x713",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "653482da-7c0d-4713-b483-aee624ddc020",
+      "comment": "",
+      "command": "click",
+      "target": "id=slct0",
+      "targets": [
+        ["id=slct0", "id"],
+        ["name=environment", "name"],
+        ["css=#slct0", "css:finder"],
+        ["xpath=//select[@id='slct0']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acbc6319-8abb-4e7b-a76f-b67830b3e11c",
+      "comment": "",
+      "command": "select",
+      "target": "id=slct0",
+      "targets": [],
+      "value": "label=Hill"
+    }, {
+      "id": "b950f4e8-e946-434f-bbb8-8976a1f3fc66",
+      "comment": "",
+      "command": "click",
+      "target": "css=#slct0 > option:nth-child(2)",
+      "targets": [
+        ["css=#slct0 > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Hill']", "xpath:attributes"],
+        ["xpath=//select[@id='slct0']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Hill')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dc8bc0ec-f126-42a7-a1b7-648a2df27138",
+      "comment": "",
+      "command": "click",
+      "target": "id=slct1",
+      "targets": [
+        ["id=slct1", "id"],
+        ["name=club", "name"],
+        ["css=#slct1", "css:finder"],
+        ["xpath=//select[@id='slct1']", "xpath:attributes"],
+        ["xpath=//p[2]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f0f1d4b-1d22-4d9a-8983-ce0e915e8853",
+      "comment": "",
+      "command": "select",
+      "target": "id=slct1",
+      "targets": [],
+      "value": "label=Avon"
+    }, {
+      "id": "0bfc6e12-9f62-4783-b1b2-d64b59fb3f31",
+      "comment": "",
+      "command": "click",
+      "target": "css=#slct1 > option:nth-child(2)",
+      "targets": [
+        ["css=#slct1 > option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Avon']", "xpath:attributes"],
+        ["xpath=//select[@id='slct1']/option[2]", "xpath:idRelative"],
+        ["xpath=//p[2]/select/option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Avon')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e1ce9ca1-9d8c-4a90-8f69-9b957d373e39",
+      "comment": "",
+      "command": "click",
+      "target": "id=slct2",
+      "targets": [
+        ["id=slct2", "id"],
+        ["name=location", "name"],
+        ["css=#slct2", "css:finder"],
+        ["xpath=//select[@id='slct2']", "xpath:attributes"],
+        ["xpath=//p[3]/select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "79cab094-e38f-4235-a6a0-45f9ef727983",
+      "comment": "",
+      "command": "select",
+      "target": "id=slct2",
+      "targets": [],
+      "value": "index=1"
+    }, {
+      "id": "64277eff-ef99-430a-86f6-3791271be7d4",
+      "comment": "",
+      "command": "click",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=p:nth-child(5) > input", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//p[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "645358ef-db1c-4c82-96e4-47cbd4d92e58",
+      "comment": "",
+      "command": "type",
+      "target": "name=phone",
+      "targets": [
+        ["name=phone", "name"],
+        ["css=p:nth-child(5) > input", "css:finder"],
+        ["xpath=//input[@name='phone']", "xpath:attributes"],
+        ["xpath=//p[5]/input", "xpath:position"]
+      ],
+      "value": "+447795426748"
+    }, {
+      "id": "8fb4dd1d-1245-4da6-ace8-a7fff6db27d4",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=p:nth-child(6) > input", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//p[6]/input", "xpath:position"]
+      ],
+      "value": "pete@logans.me.uk"
+    }, {
+      "id": "86997f9c-2e26-46e2-a082-f2ce9b2954ae",
+      "comment": "",
+      "command": "click",
+      "target": "id=submitbutton",
+      "targets": [
+        ["id=submitbutton", "id"],
+        ["css=#submitbutton", "css:finder"],
+        ["xpath=//button[@id='submitbutton']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d487b27f-5a7a-462d-b0dd-9ab2459d4678",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(6) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(6) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[6]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Dawn to dusk')]", "xpath:innerText"]
+      ],
+      "value": "Dawn to dusk"
+    }]
+  }],
+  "suites": [{
+    "id": "b940cf72-ac68-490a-ab74-9aaa84be8312",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost/", "http://localhost/canp/index_dev.html"],
+  "plugins": []
+}
