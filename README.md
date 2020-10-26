@@ -1,4 +1,4 @@
-# CANP ver 2.0
+# CANP ver 3.0
 
 ![CANP banner](https://raw.githubusercontent.com/vikingforties/CANP/master/CANPbanner.PNG)
 
