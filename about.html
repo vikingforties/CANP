@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Alerting form for free flying activity to military and civil pilots" />
+  <meta name="keywords" content="CANP,NOTAM,RAF,Paragliding,HangGliding" />
+  <meta name="author" content="Pete Logan" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Civil Aircraft Notification Procedure (CANP plus NOTAMs) for paragliders & hang gliders</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="shortcut icon" href="favicon.ico" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="brand"><span>CANP</span> for free fliers</h1>
+    <div class="wrapper animated fadeInLeft">
+      <div class="company-info">
+	    <h3>Civil Aircraft Notification Procedure</h3>
+		<h5>About & Getting help:</h5>
+        <ul>
+		  <div class="coinfo-links">
+            <li><i class="fas fa-envelope"></i><a href="index.html">&nbsp;Send in CANP</a></li>
+			<li><i class="fas fa-phone"></i>&nbsp;...or call it in:  0800 515544</li>
+			<li><i class="fas fa-at"></i>&nbsp;...or email it:</li>
+			<li>Swk-mamclfcoord{at}mod.gov.uk</li>
+            <li><i class="fas fa-vial"></i><a href="index_test.html">&nbsp;Try sending a test</a></li>
+            <li><i class="fas fa-question-circle "></i><a href="about.html">&nbsp;About & Help</a></li>
+            <li><i class="fas fa-info-circle"></i><a href="instructions.html">&nbsp;Instructions</a></li>
+            <li><i class="fas fa-fighter-jet"></i><a href="https://notaminfo.com/ukmap/" title="See NOTAMs that have been published." target="_blank">&nbsp;NOTAMs</a></li>
+            <li><i class="fas fa-edit"></i><a href="http://www.bhpa.co.uk/documents/safety/canp/" title="More detail at the BHPA on why CANP is there." target="_blank">&nbsp;BHPA Policy</a></li>
+            <li><i class="fas fa-file"></i><a href="terms.html">&nbsp;Terms & Conditions</a></li>
+            <li><i class="fas fa-user-secret"></i> <a href="privacy.html">&nbsp;Privacy Policy</a></li>
+            <li><i class="fas fa-chart-bar"></i> <a href="stats.php">&nbsp;Usage Statistics</a></li>
+            <li><i class="fas fa-map-signs"></i> <a href="coverage.html">&nbsp;Map with site guides</a></li>
+            <li><i class="fas fa-list"></i><a href="bookings.php">&nbsp;Current/Future CANPs</a></li>
+		  </div>
+        </ul>
+      </div>
+      <div class="contact">
+        <h3>About this form</h3>
+        <p>The CANP system is used to notify military aircrew of the area you are planning to take off from.  Additionally, it links through to NATS (National Air Traffic Services) and activates a NOTAM. CANP submissions are processed by an organisation within the RAF called Low Flying Coord (LFC)*, part of the Military Airspace Management Cell (MAMC), which operates from Monday to Friday as that is when military low flying normally takes place.  *previously known as the Low Flying Booking Cell (LFBC)</p>
+        <p>Aim to submit your request to LFC by <b><i>8 pm</b></i> the day before, for planned flying Tuesday to Friday.  The CANP service is not generally available for flying on weekends or on public holidays, though notifications received before <b><i>3pm</b></i> on Friday for weekend flying should be processed.  In addition, notifications for flying on Monday need to be received before <b><i>3pm</b></i> on Friday to give the best chance of a NOTAM being published.  Outside of these times you may receive a 'Late Warning' advisory which indicates that the NOTAM may not be published in time. There is currently no other way of raising a NOTAM for routine BHPA activities.</p>
+        <p>Historically, there has been a belief that raising a CANP or NOTAM for a site would attract military or General Aviation pilots to come and have a look at what's going on. We can't change this belief except to say that there is absolutely no evidence for it. There is, however, evidence for near misses at sites where a CANP or NOTAM has not been raised.</p>
+        <p>Save a link to this form on your desktop or mobile device and the whole thing can be done in less than a minute. Then you can pat yourself on the back for helping to keep you and your fellow fliers safe. <i class="far fa-smile" aria-hidden="true"></i></p>
+
+		<h3>Getting help</h3>
+		If you have a suggestion that improves these webpages, would like to get your club or school sites listed or come across an error, please let us know via Telegram @ChrisWilliams or email chriscloudbase{at}gmail.com.
+
+		<h3>Version History</h3>
+		We're building this form / system as we use it. Occasionally we'll change the site to make life easier and safer for you or other airspace users. This is a history of what changed and when. Full versioning and code is on <a href="https://github.com/vikingforties/CANP" target="_blank"> GitHub</a>.
+		<p style="margin-left:5%;">V1 - Jan 2020. Initial roll out. Build up of participating clubs in the dynamic menu. Masking of weekends in date select. Duplicate entry check. Usage statistics page. Privacy/Ts & Cs policy. Dev and Test sites. </p>
+		<p style="margin-left:5%;">V2 - Jul 2020. Remove time of day selection and replace with set dawn until dusk. Remove number of pilots. Add flight type / environment radio buttons to dynamic menu. Coverage map. Add Scottish sites. </p>
+        <p style="margin-left:5%;">V3 - Oct 2020. Weekend bookings, Send DMS Coords, nearest town and county to LFC, Automated test scripting, Add Recaptcha to live site, New clubs SW Wales, Northumbria & North Wales, Fat Paramotor, Add What3words to map of sites, Enhanced stats, add schools if they request to be added.</p>
+        <p style="margin-left:5%;">V4 - Historical stats, Reconciliation of CANPs with NOTAMs, Links to NOTAMs on Upcoming, DB changes for reconciliation time, script to check NATS for NOTAMs, incorporating change of name from Low Flying Booking Cell (LFBC) to Low Flying Coord (LFC), LFC contact email address updated. </del></p>
+		<p style="margin-left:5%;">V5 - Reinstated (from V2) optional time of day selection, with dawn to dusk remaining as the default. Proposed features: Flybubble site integration, Enhanced site protections.</p>
+
+		<h5>The Small Print</h5>
+		<small>This website is provided as a friendly service. We're not going to sell your data or fill your browser with 3<sup>rd</sup> party cookies. The telephone number and email address you supply are passed on to LFC so that they can contact you back.  The telephone number also appears in the NOTAM text to allow other airspace users to contact you.  Personal information is not stored on this site. The telephone number and email address are never stored in the clear, but are hashed (<a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_blank">no not the exciting kind</a>) to help with basic website protection. Read the Terms and Conditions and Privacy Policy for more in depth information.</small>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
